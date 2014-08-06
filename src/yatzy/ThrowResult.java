@@ -24,15 +24,6 @@ public class ThrowResult<T> {
         return values;
     }
     
-    
-    
-//    public int getSum() {
-//        int result  = 0;
-//        result = values.stream().map((value) -> value).reduce(result, Integer::sum);
-//        
-//        return result;
-//    }
-
     @Override
     public String toString() {
         return values.toString(); 

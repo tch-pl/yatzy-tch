@@ -1,30 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package yatzy;
+
+import java.util.Objects;
 
 /**
  *
  * @author chrult
  */
-class Score {
+public class Score {
     int rating;
+    String description;
 
-    public Score(int rating) {
+    public Score(int rating, String description) {
         this.rating = rating;
+        this.description = description;
     }
 
     public int getRating() {
         return rating;
     }   
 
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 61 * hash + this.rating;
+        int hash = 3;
+        hash = 13 * hash + this.rating;
+        hash = 13 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -40,11 +43,15 @@ class Score {
         if (this.rating != other.rating) {
             return false;
         }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Score{" + "rating=" + rating + '}';
-    }   
+        return "Score{" + "rating=" + rating + ", description=" + description + '}';
+    }
+    
 }
